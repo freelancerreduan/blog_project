@@ -7,8 +7,10 @@
     }
 
     session_start();
-    $id = $_SESSION['idNo'];
-    if($id){
+    if(isset($_SESSION['idNo'])){
+        $id = $_SESSION['idNo'];
+    }
+    if(isset($id)){
         header("location:dashboard.php");
     }
 ?>
@@ -24,6 +26,7 @@
                                     <div class="card-body">
                                         <form action="" method="POST">
                                             <?php if(isset($datasent)){ echo $datasent; } ?>
+
                                             <div class="form-group">
                                                 <label class="small mb-1">Email</label>
                                                 <input class="form-control py-4" type="email" name="email" placeholder="Enter email address" />
@@ -31,7 +34,6 @@
                                                 <label class="small mb-1" for="inputPassword">Password</label>
                                                 <input class="form-control py-4" type="password" name="pass" placeholder="Enter password"/>
                                             </div>
-
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox">
                                                     <input class="custom-control-input" type="checkbox" />

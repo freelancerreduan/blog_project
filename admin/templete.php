@@ -1,12 +1,23 @@
 <?php 
     include_once('incluid/head.php'); 
     include_once('class/function.php');
+    $obj = new blog_project();
+    
     session_start();
     $id = $_SESSION['idNo'];
-
     if($id==null){
         header("location:index.php");
     }
+
+    if(isset($_GET['adminlogout'])){
+        if($_GET['adminlogout']=='logout'){
+            $obj->logout();
+        }
+    }
+
+
+
+
 ?>
     <body class="sb-nav-fixed">
 <?php include_once('incluid/topnave.php'); ?>
